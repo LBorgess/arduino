@@ -36,11 +36,21 @@ void setup() {
 }
 
 void loop() {
-  if ((digitalRead(3)) || (digitalRead(4))) {
+  /* VERIFICA SE O SENHOR DETECTOU A LINHA DA ARENA */
+  if (!digitalRead(3) || !digitalRead(4)) {
     Serial.println("LINHA.");
     parado();
-    delay(10);
+    delay(1);
+    tras();
+    delay(300);
+    parado();
+    delay(1);
+    girarA();
+    delay(600);
+    parado();
   }
+  frente();
+  delay(10);
 }
 
 // ========================================
